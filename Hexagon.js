@@ -10,6 +10,7 @@ class Hexagon {
     this.radius = 20;
     this.x = x;
     this.y = y;
+    this.image = loadImage("Hexagon.png");
 
     World.add(world, this.body);
   }
@@ -19,11 +20,8 @@ class Hexagon {
     push();
     translate(pos.x, pos.y);
     rotate(angle);
-    ellipseMode(RADIUS);
-    strokeWeight(3);
-    stroke(255,10,10);
-    fill(155);
-    ellipse(0,0,this.radius,this.radius);
+    imageMode(CENTER);
+    image(this.image,0,0,this.radius*2,this.radius*2);
     pop();
   }
 }

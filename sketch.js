@@ -6,7 +6,8 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
-var paper, ground1, ground2, ground3;
+var backgroundImg;
+var bg = "day.jpg";
 var hexagon, sling;
 var box1,box2,box3,box4,box5,box6,box7;
 var box8,box9,box10,box11,box12;
@@ -71,12 +72,22 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(100);
+  background(backgroundImg);
 
   noStroke();
-  textSize(35);
-  fill(255);
-  text("Score" + score, width - 300,50);
+  textSize(20)
+  fill(0)
+  text("Drag the hexagonal stone and release it, to launch it towards the blocks",100, 50)
+
+  noStroke();
+  textSize(20)
+  fill(0)
+  text("Press space to get a second chance to play",600, 570)
+
+  noStroke();
+  textSize(25);
+  fill(0);
+  text("Score " + score, width - 200,50);
 
   drawSprites();
  
@@ -85,6 +96,8 @@ function draw() {
   ground3.display();
   hexagon.display();
   sling.display();
+
+  fill("red");
   box1.display();
   box2.display();
   box3.display();
@@ -92,24 +105,37 @@ function draw() {
   box5.display();
   box6.display();
   box7.display();
+
+  fill("yellow");
   box8.display();
   box9.display();
   box10.display();
   box11.display();
   box12.display();
+
+  fill("pink");
   box13.display();
   box14.display();
   box15.display();
+
+  fill("blue");
   box16.display();
+
+  fill("green")
   box17.display();
   box18.display();
   box19.display();
   box20.display();
   box21.display();
+
+  fill("blue")
   box22.display();
   box23.display();
   box24.display();
+  
+  fill("red")
   box25.display();
+
   box1.score();
   box2.score();
   box3.score();
@@ -147,8 +173,9 @@ function mouseReleased(){
 }
 
 function keyPressed(){
-  if(keyCode === 32){
+  if(keyCode === 32 && hexagon.body.speed < 1){
       sling.attach(hexagon.body);
+      Matter.Body.setPosition(hexagon.body,{x:50,y:200});
   }
 }
 
@@ -167,10 +194,11 @@ async function getBackgroundImg(){
   console.log(hour);
 
   if(hour>06 && hour<18){
-      background(255);
+      bg = "day.jpg";
   }else{
-      background(70);
+      bg = "night.jpg";
   }
       
+    backgroundImg = loadImage(bg);
 
 }
