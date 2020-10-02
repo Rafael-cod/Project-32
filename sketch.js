@@ -17,6 +17,9 @@ var box17,box18,box19,box20,box21;
 var box22,box23,box24;
 var box25;
 
+function preload() {
+  getBackgroundImg();
+}
 
 function setup() {
 	createCanvas(1000, 600);
@@ -72,21 +75,22 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(backgroundImg);
+  if(backgroundImg)
+      background(backgroundImg);
 
   noStroke();
   textSize(20)
-  fill(0)
+  fill(100,200,100)
   text("Drag the hexagonal stone and release it, to launch it towards the blocks",100, 50)
 
   noStroke();
   textSize(20)
-  fill(0)
+  fill(140,140,200)
   text("Press space to get a second chance to play",600, 570)
 
   noStroke();
   textSize(25);
-  fill(0);
+  fill(100,200,100);
   text("Score " + score, width - 200,50);
 
   drawSprites();
@@ -136,31 +140,31 @@ function draw() {
   fill("red")
   box25.display();
 
-  box1.score();
-  box2.score();
-  box3.score();
-  box4.score();
-  box5.score();
-  box6.score();
-  box7.score();
-  box8.score();
-  box9.score();
-  box10.score();
-  box11.score();
-  box12.score();
-  box13.score();
-  box14.score();
-  box15.score();
-  box16.score();
-  box17.score();
-  box18.score();
-  box19.score();
-  box20.score();
-  box21.score();
-  box22.score();
-  box23.score();
-  box24.score();
-  box25.score();
+  box1.scores();
+  box2.scores();
+  box3.scores();
+  box4.scores();
+  box5.scores();
+  box6.scores();
+  box7.scores();
+  box8.scores();
+  box9.scores();
+  box10.scores();
+  box11.scores();
+  box12.scores();
+  box13.scores();
+  box14.scores();
+  box15.scores();
+  box16.scores();
+  box17.scores();
+  box18.scores();
+  box19.scores();
+  box20.scores();
+  box21.scores();
+  box22.scores();
+  box23.scores();
+  box24.scores();
+  box25.scores();
 
 }
 
@@ -196,7 +200,7 @@ async function getBackgroundImg(){
   if(hour>06 && hour<18){
       bg = "day.jpg";
   }else{
-      bg = "night.jpg";
+      bg = "night.png";
   }
       
     backgroundImg = loadImage(bg);

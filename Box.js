@@ -12,7 +12,7 @@ class Box {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.visibility = 255;
+    this.Visibility = 255;
     
     World.add(world, this.body);
   }
@@ -29,20 +29,20 @@ class Box {
     }else{
       World.remove(world, this.body);
       push();
-      this.visibility = this.visibility - 5;
-      tint(255,this.visibility);
+      this.Visibility = this.Visibility - 5;
+      tint(255,this.Visibility);
       strokeWeight(4);
       stroke(100,200,100);
       rect(this.image,this.body.position.x,this.body.position.y,50,50);
       pop();
     }
   }
-  
- score(){
-  if(this.Visiblity < 0 && this.Visiblity > -105){
-   score++;
 
+  scores(){
+    if (this.Visibility < 0 && this.Visibility > -105){
+      score++;
+    }
   }
-}
+
 
 }
