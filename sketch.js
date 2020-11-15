@@ -75,8 +75,11 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  if(backgroundImg)
+  if(backgroundImg){
       background(backgroundImg);
+  }else{
+	background(100);
+  }
 
   noStroke();
   textSize(20)
